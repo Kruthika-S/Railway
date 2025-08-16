@@ -1,0 +1,297 @@
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #3b82f6;
+  --secondary: #10b981;
+  --accent: #f59e0b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  background-color: #0f172a;
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-200px) rotate(5deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.5; }
+}
+
+@keyframes pulse-slower {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.4; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes drive-slow {
+  0% { transform: translateX(-100%) rotateY(180deg); }
+  100% { transform: translateX(100vw) rotateY(180deg); }
+}
+
+@keyframes drive-fast {
+  0% { transform: translateX(-100%) rotateY(180deg); }
+  100% { transform: translateX(100vw) rotateY(180deg); }
+}
+
+@keyframes pan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes ping-slow {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes ping-slower {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* Enhanced Floating Elements */
+.floating-element {
+  will-change: transform, opacity;
+}
+
+/* Main CTA Button Effects */
+.spot-background {
+  position: relative;
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 9999px;
+  transition: all 0.5s ease;
+}
+
+.spot-background:hover::before,
+.spot-background:hover::after {
+  opacity: 0.8;
+}
+
+.spot-background::before,
+.spot-background::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: pulse-circles 4s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.spot-background::before {
+  width: 120%;
+  height: 120%;
+  border: 2px solid rgba(74, 222, 128, 0.6);
+  opacity: 0.4;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+}
+
+.spot-background::after {
+  width: 150%;
+  height: 150%;
+  border: 2px dashed rgba(74, 222, 128, 0.4);
+  opacity: 0.3;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
+}
+
+@keyframes pulse-circles {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.2; }
+}
+
+/* Car Animations */
+.animate-drive-slow {
+  animation: drive-slow 15s linear infinite;
+}
+
+.animate-drive-fast {
+  animation: drive-fast 10s linear infinite;
+  animation-delay: 3s;
+}
+
+/* Gradient Pan Animation */
+.animate-pan {
+  animation: pan 20s linear infinite;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+  }
+
+  main p {
+    font-size: 1.1rem !important;
+  }
+
+  header, footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .spot-background {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main h1 {
+    font-size: 2rem !important;
+  }
+
+  .spot-background button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Button Enhancements */
+button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+button span:not(.absolute) {
+  position: relative;
+  z-index: 10;
+}
+
+button .absolute {
+  transition: opacity 0.3s ease;
+}
+
+/* Text Gradients */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Drop Shadows */
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.main{
+  margin-left: -25.5rem
+
+}
+.center-wrapper {
+  margin-left: 15.5rem;
+  text-align: center;
+}
+
+
+/* YourTicket.css */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #f87171;
+}
+
+.ticket-card {
+  transition: all 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #4a5568;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #2d3748;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.dropdown-content button {
+  color: white;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #4a5568;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
