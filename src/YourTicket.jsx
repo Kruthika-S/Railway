@@ -24,7 +24,7 @@ const YourTicket = () => {
         const token = localStorage.getItem('token');
         if (!token) throw new Error('No token found');
 
-        const response = await fetch('http://localhost:5001/api/user-tickets', {
+        const response = await fetch('https://frontendreact-2.onrender.com/api/user-tickets', {
           method: 'GET',
           credentials: 'include',
           headers: {

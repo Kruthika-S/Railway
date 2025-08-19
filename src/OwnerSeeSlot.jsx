@@ -28,7 +28,7 @@ const OwnerSeeSlot = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5001/api/owner/see-slot', {
+      const response = await fetch('https://frontendreact-2.onrender.com/api/owner/see-slot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

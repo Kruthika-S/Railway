@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const response = await fetch('http://localhost:5001/api/owner/signup', {
+    const response = await fetch('https://frontendreact-2.onrender.com/api/owner/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

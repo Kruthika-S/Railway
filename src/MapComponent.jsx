@@ -66,7 +66,7 @@ const MapComponent = () => {
   useEffect(() => {
     const fetchSpots = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/spots');
+        const response = await fetch('https://frontendreact-2.onrender.com/api/spots');
         if (!response.ok) throw new Error('Failed to fetch spots');
         const data = await response.json();
         setSpots(data);

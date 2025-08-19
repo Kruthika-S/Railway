@@ -15,7 +15,7 @@ function ResetPassword() {
     // Verify token validity
     const verifyToken = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/verify-token/${token}`);
+        const response = await fetch(`https://frontendreact-2.onrender.com/api/verify-token/${token}`);
         const data = await response.json();
         setIsValidToken(data.valid);
         if (!data.valid) {
@@ -37,7 +37,7 @@ function ResetPassword() {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/reset-password', {
+      const response = await fetch('https://frontendreact-2.onrender.com/api/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token, password })
