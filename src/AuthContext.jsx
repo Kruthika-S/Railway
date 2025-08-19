@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 const checkAuth = async () => {
   setLoading(true);
   try {
-    const response = await fetch('https://frontendreact-2.onrender.com/api/user', {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
       credentials: 'include', // Ensures cookies are sent
     });
     
@@ -55,7 +55,7 @@ const checkAuth = async () => {
 
   const logout = async () => {
   try {
-    await fetch('https://frontendreact-2.onrender.com/api/logout', {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logout`, {
       method: 'POST',
       credentials: 'include',
     });

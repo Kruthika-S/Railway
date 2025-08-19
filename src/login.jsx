@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setError('');
   try {
-    const res = await fetch('https://frontendreact-2.onrender.com/api/login', {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

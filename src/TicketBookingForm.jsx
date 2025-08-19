@@ -89,7 +89,7 @@ const TicketBookingForm = () => {
     setSubmitting(true);
     
     try {
-      const response = await fetch('https://frontendreact-2.onrender.com/api/book-ticket', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/book-ticket`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

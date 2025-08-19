@@ -18,7 +18,7 @@ const OwnerTicketDisplay = () => {
 
     const fetchLatestTicket = async () => {
       try {
-        const response = await fetch('https://frontendreact-2.onrender.com/api/owner/tickets', {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/owner/tickets`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

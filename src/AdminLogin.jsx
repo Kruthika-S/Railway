@@ -18,7 +18,7 @@ const AdminLogin = () => {
     console.log('Submitting:', formData);
 
     try {
-      const response = await fetch('https://frontendreact-2.onrender.com/api/admin-login', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/admin-login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
